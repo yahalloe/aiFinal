@@ -1,15 +1,29 @@
-import { Restaurant } from '../App';
-import { X, MapPin, Star, Phone, Clock, DollarSign, Navigation, Heart, Share2, TrendingUp } from 'lucide-react';
-import { Badge } from './ui/badge';
-import { Button } from './ui/button';
-import { useState } from 'react';
+import { Restaurant } from "../App";
+import {
+  X,
+  MapPin,
+  Star,
+  Phone,
+  Clock,
+  DollarSign,
+  Navigation,
+  Heart,
+  Share2,
+  TrendingUp,
+} from "lucide-react";
+import { Badge } from "./ui/badge";
+import { Button } from "./ui/button";
+import { useState } from "react";
 
 interface RestaurantDetailsProps {
   restaurant: Restaurant;
   onClose: () => void;
 }
 
-export function RestaurantDetails({ restaurant, onClose }: RestaurantDetailsProps) {
+export function RestaurantDetails({
+  restaurant,
+  onClose,
+}: RestaurantDetailsProps) {
   const [isFavorited, setIsFavorited] = useState(false);
 
   return (
@@ -49,8 +63,12 @@ export function RestaurantDetails({ restaurant, onClose }: RestaurantDetailsProp
                 <div className="flex items-center gap-2">
                   <TrendingUp className="size-4 text-green-600" />
                   <div>
-                    <div className="text-xs text-orange-600">AI Match Score</div>
-                    <div className="text-green-600">{restaurant.matchScore}%</div>
+                    <div className="text-xs text-orange-600">
+                      AI Match Score
+                    </div>
+                    <div className="text-green-600">
+                      {restaurant.matchScore}%
+                    </div>
                   </div>
                 </div>
               </div>
@@ -115,7 +133,7 @@ export function RestaurantDetails({ restaurant, onClose }: RestaurantDetailsProp
             <div className="mb-6">
               <h3 className="text-orange-900 mb-3">Cuisine</h3>
               <div className="flex flex-wrap gap-2">
-                {restaurant.cuisine.map(cuisine => (
+                {restaurant.cuisine.map((cuisine) => (
                   <Badge
                     key={cuisine}
                     className="bg-orange-100 text-orange-700 capitalize"
@@ -129,7 +147,7 @@ export function RestaurantDetails({ restaurant, onClose }: RestaurantDetailsProp
             {/* Contact Information */}
             <div className="mb-6 space-y-3">
               <h3 className="text-orange-900 mb-3">Contact & Hours</h3>
-              
+
               <div className="flex items-center gap-3 p-3 bg-orange-50 rounded-xl">
                 <div className="bg-white p-2 rounded-lg">
                   <Phone className="size-4 text-orange-600" />
@@ -159,19 +177,22 @@ export function RestaurantDetails({ restaurant, onClose }: RestaurantDetailsProp
                   <div className="flex items-start gap-2">
                     <div className="size-1.5 bg-green-600 rounded-full mt-1.5" />
                     <p className="text-green-800">
-                      Matches {restaurant.cuisine.length} of your preferred cuisine types
+                      Matches {restaurant.cuisine.length} of your preferred
+                      cuisine types
                     </p>
                   </div>
                   <div className="flex items-start gap-2">
                     <div className="size-1.5 bg-green-600 rounded-full mt-1.5" />
                     <p className="text-green-800">
-                      High rating of {restaurant.rating} stars from verified diners
+                      High rating of {restaurant.rating} stars from verified
+                      diners
                     </p>
                   </div>
                   <div className="flex items-start gap-2">
                     <div className="size-1.5 bg-green-600 rounded-full mt-1.5" />
                     <p className="text-green-800">
-                      Within your preferred distance range ({restaurant.distance} km)
+                      Within your preferred distance range (
+                      {restaurant.distance} km)
                     </p>
                   </div>
                   <div className="flex items-start gap-2">
@@ -188,17 +209,24 @@ export function RestaurantDetails({ restaurant, onClose }: RestaurantDetailsProp
             <div className="flex gap-3">
               <Button
                 className="flex-1 bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-600 hover:to-amber-700 text-white"
-                onClick={() => window.open(`https://maps.google.com/?q=${restaurant.coordinates[0]},${restaurant.coordinates[1]}`, '_blank')}
+                onClick={() =>
+                  window.open(
+                    `https://maps.google.com/?q=${restaurant.coordinates[0]},${restaurant.coordinates[1]}`,
+                    "_blank",
+                  )
+                }
               >
                 <Navigation className="size-4 mr-2" />
                 Get Directions
               </Button>
               <Button
                 variant="outline"
-                className={`border-orange-300 ${isFavorited ? 'bg-orange-50 text-orange-700' : 'text-orange-700 hover:bg-orange-50'}`}
+                className={`border-orange-300 ${isFavorited ? "bg-orange-50 text-orange-700" : "text-orange-700 hover:bg-orange-50"}`}
                 onClick={() => setIsFavorited(!isFavorited)}
               >
-                <Heart className={`size-4 ${isFavorited ? 'fill-orange-500 text-orange-500' : ''}`} />
+                <Heart
+                  className={`size-4 ${isFavorited ? "fill-orange-500 text-orange-500" : ""}`}
+                />
               </Button>
               <Button
                 variant="outline"

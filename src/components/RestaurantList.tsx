@@ -1,6 +1,6 @@
-import { Restaurant, SortOption } from '../App';
-import { RestaurantCard } from './RestaurantCard';
-import { TrendingUp, SlidersHorizontal } from 'lucide-react';
+import { Restaurant, SortOption } from "../App";
+import { RestaurantCard } from "./RestaurantCard";
+import { TrendingUp, SlidersHorizontal } from "lucide-react";
 
 interface RestaurantListProps {
   restaurants: Restaurant[];
@@ -25,7 +25,8 @@ export function RestaurantList({
           <div>
             <h2 className="text-orange-900">Recommended</h2>
             <p className="text-sm text-orange-600">
-              {restaurants.length} restaurant{restaurants.length !== 1 ? 's' : ''} found
+              {restaurants.length} restaurant
+              {restaurants.length !== 1 ? "s" : ""} found
             </p>
           </div>
           <div className="flex items-center gap-1 px-3 py-1.5 bg-white rounded-lg border border-orange-200">
@@ -39,41 +40,41 @@ export function RestaurantList({
           <SlidersHorizontal className="size-4 text-orange-600" />
           <div className="flex gap-1 flex-wrap">
             <button
-              onClick={() => onSortChange('match')}
+              onClick={() => onSortChange("match")}
               className={`px-3 py-1 rounded-lg text-xs transition-all ${
-                sortBy === 'match'
-                  ? 'bg-orange-500 text-white'
-                  : 'bg-white text-orange-700 hover:bg-orange-50 border border-orange-200'
+                sortBy === "match"
+                  ? "bg-orange-500 text-white"
+                  : "bg-white text-orange-700 hover:bg-orange-50 border border-orange-200"
               }`}
             >
               Best Match
             </button>
             <button
-              onClick={() => onSortChange('rating')}
+              onClick={() => onSortChange("rating")}
               className={`px-3 py-1 rounded-lg text-xs transition-all ${
-                sortBy === 'rating'
-                  ? 'bg-orange-500 text-white'
-                  : 'bg-white text-orange-700 hover:bg-orange-50 border border-orange-200'
+                sortBy === "rating"
+                  ? "bg-orange-500 text-white"
+                  : "bg-white text-orange-700 hover:bg-orange-50 border border-orange-200"
               }`}
             >
               Rating
             </button>
             <button
-              onClick={() => onSortChange('distance')}
+              onClick={() => onSortChange("distance")}
               className={`px-3 py-1 rounded-lg text-xs transition-all ${
-                sortBy === 'distance'
-                  ? 'bg-orange-500 text-white'
-                  : 'bg-white text-orange-700 hover:bg-orange-50 border border-orange-200'
+                sortBy === "distance"
+                  ? "bg-orange-500 text-white"
+                  : "bg-white text-orange-700 hover:bg-orange-50 border border-orange-200"
               }`}
             >
               Distance
             </button>
             <button
-              onClick={() => onSortChange('price')}
+              onClick={() => onSortChange("price")}
               className={`px-3 py-1 rounded-lg text-xs transition-all ${
-                sortBy === 'price'
-                  ? 'bg-orange-500 text-white'
-                  : 'bg-white text-orange-700 hover:bg-orange-50 border border-orange-200'
+                sortBy === "price"
+                  ? "bg-orange-500 text-white"
+                  : "bg-white text-orange-700 hover:bg-orange-50 border border-orange-200"
               }`}
             >
               Price
@@ -88,10 +89,12 @@ export function RestaurantList({
           <div className="text-center py-12">
             <div className="text-orange-400 mb-2">🍽️</div>
             <p className="text-orange-900 mb-1">No restaurants found</p>
-            <p className="text-sm text-orange-600">Try adjusting your filters</p>
+            <p className="text-sm text-orange-600">
+              Try adjusting your filters
+            </p>
           </div>
         ) : (
-          restaurants.map(restaurant => (
+          restaurants.map((restaurant) => (
             <RestaurantCard
               key={restaurant.id}
               restaurant={restaurant}
